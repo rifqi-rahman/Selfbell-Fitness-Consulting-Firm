@@ -1,0 +1,774 @@
+:root {
+  /* Palet Warna Utama */
+  --primary-blue: #0066CC;
+  --secondary-blue: #003366;
+  --accent-blue: #4DA6FF;
+  --pure-white: #FFFFFF;
+  --off-white: #F5F5F5;
+  --pure-black: #000000;
+  --dark-gray: #333333;
+}
+
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  background-color: var(--off-white);
+  color: var(--dark-gray);
+}
+
+/* Komponen Umum */
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--pure-white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-blue);
+  transform: translateY(-2px);
+}
+
+/* Menambahkan styling untuk navbar */
+.navbar {
+  background-color: var(--pure-white);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+}
+
+/* Styling untuk hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 10%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)
+  ),
+  url('../images/hero-banner.jpg') center/cover;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--pure-white);
+  position: relative;
+  z-index: 1;
+}
+
+.hero:hover {
+  background-attachment: scroll;
+  transition: background-attachment 0.3s ease;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.hero button {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.9s;
+  opacity: 0;
+}
+
+/* Responsive styling untuk hero section */
+@media (max-width: 768px) {
+  .hero {
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero button {
+    margin: 0 auto;
+  }
+}
+
+/* Untuk tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Styling untuk feature section */
+.features {
+  padding: 5rem 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Media Queries untuk Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Akan diganti dengan hamburger menu */
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Styling untuk feature cards */
+.feature-card {
+  background: var(--pure-white);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: calc(var(--card-index) * 0.2s);
+  opacity: 0;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: var(--dark-gray);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+
+/* Animasi untuk hamburger menu */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Mobile menu styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: var(--pure-white);
+    padding: 80px 40px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+}
+
+/* Animasi scroll untuk elemen */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styling untuk testimonial section */
+.testimonials {
+  padding: 5rem 5%;
+  background: var(--secondary-blue);
+  color: var(--pure-white);
+  overflow: hidden; /* Penting untuk carousel */
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 1rem;
+  animation: slideTrack 30s linear infinite;
+  width: fit-content;
+}
+
+.testimonial-card {
+  min-width: 300px;
+  max-width: 300px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin-right: 20px;
+  height: 220px;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: calc(var(--card-index) * 0.2s);
+  opacity: 0;
+}
+
+/* Styling untuk teks testimonial */
+.testimonial-card > p {
+  text-align: justify;
+  line-height: 1.4;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--pure-white);
+  opacity: 0.9;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Rating styling */
+.rating {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.rating i {
+  font-size: 0.8rem;
+}
+
+.rating span {
+  color: var(--pure-white);
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
+/* Animasi untuk carousel */
+@keyframes slideTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+/* Hover effect untuk pause animation */
+.testimonial-slider:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Clone cards for infinite scroll */
+.testimonial-track {
+  display: flex;
+  animation: slideTrack 30s linear infinite;
+}
+
+/* Styling untuk Footer */
+.footer {
+    background-color: var(--secondary-blue);
+    color: var(--pure-white);
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: calc(var(--section-index) * 0.2s);
+    opacity: 0;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: var(--pure-white);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+}
+
+/* Subscribe Form Styling */
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.subscribe-form input {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--pure-white);
+}
+
+.subscribe-form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.subscribe-form button {
+    background-color: var(--accent-blue);
+    border: none;
+    width: fit-content;
+}
+
+.subscribe-form button:hover {
+    background-color: var(--primary-blue);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Icon Spacing */
+.footer-section i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+    }
+
+    .subscribe-form button {
+        width: 100%;
+    }
+}
+
+/* Tambahkan responsive sizing */
+@media (max-width: 768px) {
+  .testimonial-card {
+    min-width: 280px;
+    margin-right: 15px;
+  }
+  
+  .testimonial-card > p {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Styling untuk testimonial header dan avatar */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-header > div {
+    flex: 1;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--pure-white);
+}
+
+/* Memperbaiki spacing untuk informasi user */
+.testimonial-header h4 {
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+    color: var(--pure-white);
+}
+
+.testimonial-header p {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+}
+
+/* Responsive styling untuk avatar */
+@media (max-width: 768px) {
+    .testimonial-avatar {
+        width: 60px;  /* Sedikit lebih kecil di mobile */
+        height: 60px;
+    }
+    
+    .testimonial-header {
+        gap: 0.8rem;  /* Mengurangi gap di mobile */
+    }
+}
+
+/* Styling untuk highlight text */
+.highlight {
+    color: var(--accent-blue);
+    font-weight: 700;
+}
+
+/* Tambahkan animasi fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Class untuk elemen yang akan di-animate */
+.fade-in {
+    opacity: 0;
+}
+
+/* Styling untuk animasi teks di hero section */
+.hero h1 {
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.hero p {
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.hero button {
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+}
+
+/* Animasi untuk feature cards */
+.feature-card h3 {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.feature-card p {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+/* Animasi untuk testimonial section */
+.testimonials h2 {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.testimonial-card {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: calc(var(--card-index) * 0.2s);
+    opacity: 0;
+}
+
+/* Animasi untuk footer sections */
+.footer-section {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: calc(var(--section-index) * 0.2s);
+    opacity: 0;
+}
+
+/* Styling untuk about section */
+.about {
+    padding: 5rem 10%;
+    background-color: var(--pure-white);
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    padding-right: 2rem;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin-bottom: 3rem;
+    text-align: justify;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Update responsive styling */
+@media (max-width: 968px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-text {
+        padding-right: 0;
+    }
+
+    .about-image {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 5%;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about-image {
+        max-height: 300px;
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 600px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--dark-gray);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.accent {
+    color: var(--accent-blue);
+}
+
+/* Responsive styling untuk about section */
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 5%;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2.8rem;
+    }
+
+    .stat-item p {
+        font-size: 1rem;
+    }
+}
+
+/* Hapus properti text-align: justify dari stat-item p jika ada */
+.about p:not(.stat-item p) {
+    text-align: justify; /* Justify hanya untuk paragraf about, bukan untuk stat items */
+} 
